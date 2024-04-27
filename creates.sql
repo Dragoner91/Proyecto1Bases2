@@ -586,3 +586,4 @@ INSERT INTO C_C (fecha_inicio, fecha_fin, sueldo, fk_cargo, cont_fk) VALUES
 ('2027-01-01', '2027-12-31', 70000, 4, 49),
 ('2027-02-01', '2027-12-31', 65000, 5, 50);
 
+INSERT INTO farmacia(capacidad) VALUES(250000)
