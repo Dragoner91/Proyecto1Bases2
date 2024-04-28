@@ -4,10 +4,12 @@ DELIMITER //
 
 CREATE PROCEDURE reporte1()
 BEGIN
-    SELECT E.cedula_emp, E.nombre_emp, E.apellido_emp, SUM(TIMESTAMPDIFF(HOUR, ES.hora_entrada, ES.hora_salida)) AS Horas_Trabajadas
+    SELECT E.cedula_emp, E.nombre_emp, E.apellido_emp, CA.nombre_cargo, SUM(TIMESTAMPDIFF(HOUR, ES.hora_entrada, ES.hora_salida)) AS Horas_Trabajadas
     FROM EMPLEADO E
     JOIN CONTRATO_EMPLEADO CE ON E.cedula_emp = CE.fk_emp
     JOIN ENTRADA_SALIDA ES ON CE.id_contrato = ES.fk_contrato
+    JOIN C_C CC ON CC.cont_fk = CE.id_contrato
+    JOIN CARGO CA ON CA.id_cargo = CC.fk_cargo
     GROUP BY E.cedula_emp
     ORDER BY Horas_Trabajadas DESC;
 END//
@@ -101,15 +103,19 @@ BEGIN
     FROM 
         EMPLEADO E
     JOIN 
-        C_C CC ON E.cedula_emp = CC.cont_fk
+        contrato_empleado CE ON E.cedula_emp = CE.fk_emp
+    JOIN 
+        C_C CC ON CE.id_contrato = CC.cont_fk
     JOIN 
         CARGO C ON CC.fk_cargo = C.id_cargo
     JOIN  
         FACTURA F ON E.cedula_emp = F.fk_empleado
     JOIN
         DETALLE_FACTURA DF ON F.id_factura = DF.fk_factura
-    WHERE 
-        CC.fecha_fin IS NULL
+        GROUP BY
+        E.cedula_emp, 
+        E.nombre_emp, 
+        E.apellido_emp
     ORDER BY 
         cantidad_vendida DESC;
 END//
@@ -151,34 +157,27 @@ DELIMITER //
 CREATE PROCEDURE reporte7(IN ano INT)
 BEGIN
     SELECT 
-        YEAR(V.fecha_emision) AS Año_Venta, 
-        MONTH(V.fecha_emision) AS Mes_Venta, 
-        C.nombre_categoria, 
+        YEAR(f.fecha_emision) AS Año_Venta, 
+        MONTH(f.fecha_emision) AS Mes_Venta, 
+        c.nombre_categoria,
         SUM(F.total) AS Total_Ventas
     FROM 
-        FACTURA V
-    JOIN 
-        CLIENTE CL ON V.cliente_fk = CL.cedula_cli
-    JOIN 
-        PRODUCTO P ON CL.fk_lugar = P.fk_categoria
-    JOIN 
-        CATEGORIA C ON P.fk_categoria = C.id_categoria
-    JOIN 
-        (SELECT 
-            id_factura, 
-            MAX(total) AS MaxTotal
-         FROM 
-            FACTURA
-         GROUP BY 
-            YEAR(fecha_emision), MONTH(fecha_emision)
-        ) AS MV ON V.id_factura = MV.id_factura AND V.total = MV.MaxTotal
+        categoria as c
+    JOIN
+    producto p on c.id_categoria = p.fk_categoria
+    JOIN
+    inventario i on p.id_producto = i.producto_fk
+    JOIN
+    detalle_factura df on i.id_inventario = df.fk_inventario
+    JOIN
+    factura f on df.fk_factura = f.id_factura
     WHERE 
-        YEAR(V.fecha_emision) = ano
+        YEAR(f.fecha_emision) = ano
     GROUP BY 
         Año_Venta, Mes_Venta, C.nombre_categoria
     ORDER BY 
         Año_Venta, Mes_Venta, Total_Ventas DESC;
-END //
+END//
 
 DELIMITER ;
 

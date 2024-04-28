@@ -36,7 +36,7 @@ $htmlNav = '<nav>
             <th scope="col">Cedula</th>
             <th scope="col">Nombre</th>
             <th scope="col">Apellido</th>
-            <th scope="col">Horas Trabajadas</th>
+            <th scope="col">Horas</th>
           </tr>
         </thead>
         <tbody>

@@ -312,7 +312,7 @@ INSERT INTO CONTRATO_EMPLEADO(fecha_ingreso,fecha_egreso,fk_emp) SELECT '2022-5-
 INSERT INTO CONTRATO_EMPLEADO(fecha_ingreso,fecha_egreso,fk_emp) SELECT '2022-7-18',null,EMPLEADO.cedula_emp from EMPLEADO where EMPLEADO.cedula_emp='27472755';
 INSERT INTO CONTRATO_EMPLEADO(fecha_ingreso,fecha_egreso,fk_emp) SELECT '2023-1-27',null,EMPLEADO.cedula_emp from EMPLEADO where EMPLEADO.cedula_emp='27965641';
 INSERT INTO CONTRATO_EMPLEADO(fecha_ingreso,fecha_egreso,fk_emp) SELECT '2023-3-21',null,EMPLEADO.cedula_emp from EMPLEADO where EMPLEADO.cedula_emp='30720094';
-INSERT INTO CONTRATO_EMPLEADO(fecha_ingreso,fecha_egreso,fk_emp) SELECT '2023-1-2',null,EMPLEADO.cedula_emp from EMPLEADO where EMPLEADO.cedula_emp='26647943';
+INSERT INTO CONTRATO_EMPLEADO(fecha_ingreso,fecha_egreso,fk_emp) SELECT '2023-1-2',null,EMPLEADO.cedula_emp from EMPLEADO where EMPLEADO.cedula_emp='26647943';------------
 INSERT INTO CONTRATO_EMPLEADO(fecha_ingreso,fecha_egreso,fk_emp) SELECT '2022-4-14',null,EMPLEADO.cedula_emp from EMPLEADO where EMPLEADO.cedula_emp='28180142';
 INSERT INTO CONTRATO_EMPLEADO(fecha_ingreso,fecha_egreso,fk_emp) SELECT '2024-2-4',null,EMPLEADO.cedula_emp from EMPLEADO where EMPLEADO.cedula_emp='19606815';
 INSERT INTO CONTRATO_EMPLEADO(fecha_ingreso,fecha_egreso,fk_emp) SELECT '2023-10-31',null,EMPLEADO.cedula_emp from EMPLEADO where EMPLEADO.cedula_emp='18364270';
@@ -444,6 +444,8 @@ INSERT INTO C_H(fk_horario,contrato_fk) VALUES((SELECT id_horario FROM HORARIO W
 INSERT INTO C_H(fk_horario,contrato_fk) VALUES((SELECT id_horario FROM HORARIO WHERE hora_entrada='23:15:00' and hora_salida='07:15:00'),(SELECT id_contrato FROM CONTRATO_EMPLEADO WHERE fk_emp= (SELECT cedula_emp FROM EMPLEADO WHERE cedula_emp= '29861430')));
 INSERT INTO C_H(fk_horario,contrato_fk) VALUES((SELECT id_horario FROM HORARIO WHERE hora_entrada='22:15:00' and hora_salida='06:15:00'),(SELECT id_contrato FROM CONTRATO_EMPLEADO WHERE fk_emp= (SELECT cedula_emp FROM EMPLEADO WHERE cedula_emp= '27741713')));
 INSERT INTO C_H(fk_horario,contrato_fk) VALUES((SELECT id_horario FROM HORARIO WHERE hora_entrada='23:15:00' and hora_salida='07:15:00'),(SELECT id_contrato FROM CONTRATO_EMPLEADO WHERE fk_emp= (SELECT cedula_emp FROM EMPLEADO WHERE cedula_emp= '28308698')));
+
+INSERT INTO C_H(fk_horario,contrato_fk) VALUES((SELECT id_horario FROM HORARIO WHERE hora_entrada='09:00:00' and hora_salida='17:00:00'),(SELECT id_contrato FROM CONTRATO_EMPLEADO WHERE fk_emp= (SELECT cedula_emp FROM EMPLEADO WHERE cedula_emp= '26647943')));
 
 INSERT INTO CARGO(nombre_cargo,sueldo_hora) VALUES('Farmacéutico titular',6);
 INSERT INTO CARGO(nombre_cargo,sueldo_hora) VALUES('Farmacéutico co-titular',5.5);

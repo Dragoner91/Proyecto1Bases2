@@ -17,6 +17,7 @@ foreach ($rows as $row) {
         <td>' . $row['cedula_emp'] . '</td>
         <td>' . $row['nombre_emp'] . '</td>
         <td>' . $row['apellido_emp'] . '</td>
+        <td>' . $row['nombre_cargo'] . '</td>
         <td>' . $row['Horas_Trabajadas'] . '</td>
     </tr>
     ';
@@ -37,6 +38,7 @@ $html = '<nav>
             <th scope="col">Cedula</th>
             <th scope="col">Nombre</th>
             <th scope="col">Apellido</th>
+            <th scope="col">Cargo</th>
             <th scope="col">Horas</th>
           </tr>
         </thead>

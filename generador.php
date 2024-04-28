@@ -166,6 +166,7 @@
                             </td>
                             <td>
                                 <select name="anoR3" id="anoR3" class="fechas">
+                                    <option value="2024">2024</option>
                                     <option value="2023">2023</option>
                                     <option value="2022">2022</option>
                                 </select>
@@ -227,7 +228,6 @@
                         <select name="anoR7" id="anoR7" class="fechas">
                             <option value="2023">2023</option>
                             <option value="2022">2022</option>
-                            <option value="2021">2021</option>
                         </select>
                     </td>
                     <td>
@@ -245,7 +245,6 @@
                             <select name="anoR8" id="anoR8" class="fechas">
                                 <option value="2023">2023</option>
                                 <option value="2022">2022</option>
-                                <option value="2021">2021</option>
                             </select>
                             </td>
                             <td>

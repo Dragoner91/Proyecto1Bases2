@@ -31,7 +31,7 @@ $mpdf->WriteHTML($htmlNav, 2); //HTML Content goes here.
 
 
 
-$query = "CALL reporte4(".$ano.")";
+$query = "CALL reporte7(".$ano.")";
 $stmt = $sql->prepare($query);
 $stmt->execute();
 $rows = $stmt->fetchAll();

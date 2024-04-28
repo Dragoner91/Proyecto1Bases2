@@ -19,7 +19,7 @@ $htmlNav = '<nav>
             <th scope="col" style="vertical-align: middle;">Cedula</th>
             <th scope="col" style="vertical-align: middle;">Nombre</th>
             <th scope="col" style="vertical-align: middle;">Apellido</th>
-            <th scope="col" style="vertical-align: middle;">Cantidad Vendida</th>
+            <th scope="col" style="vertical-align: middle;">Ventas</th>
           </tr>
         </thead>
         <tbody>

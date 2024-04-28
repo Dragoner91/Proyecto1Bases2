@@ -1,12 +1,6 @@
 <?php
 include("db.php");
-$prueba = "holi";
-$query = "select * from empleado";
-$stmt = $sql->prepare($query);
-$stmt->execute();
-$empleados = $stmt->fetchAll(); //buscamos todos los empleados
-
-foreach ($empleados as $empleado) {
+    $empleado['cedula_emp'] = "26647943";
     $query = "SELECT * from contrato_empleado where fk_emp = ?";
     $stmt = $sql->prepare($query);
     $stmt->bindParam(1, $empleado['cedula_emp'], PDO::PARAM_STR); //buscamos el contrato del empleado
@@ -50,7 +44,7 @@ foreach ($empleados as $empleado) {
             // Obtener el día de la semana (0 para Domingo, 1 para Lunes, etc.)
             $dia_semana = $fecha->format('w');
             $dia_semana = $dias_semana[$dia_semana];
-            if($contrato['fk_emp'] == "21131494"){
+            if($contrato['fk_emp'] == "26647943"){
                 echo "<h5> $diaTrabajo y $dia_semana</h5>";
             }
             if ($diaTrabajo == $dia_semana) {
@@ -77,4 +71,4 @@ foreach ($empleados as $empleado) {
         }
         
     }
-}
+
