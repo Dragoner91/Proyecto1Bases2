@@ -745,7 +745,7 @@ INSERT INTO DETALLE_FACTURA(cantidad_prod,descuento,precio_unitario,fk_factura,f
 INSERT INTO DETALLE_FACTURA(cantidad_prod,descuento,precio_unitario,fk_factura,fk_inventario) VALUES(1,0,3.35,13,15);
 INSERT INTO DETALLE_FACTURA(cantidad_prod,descuento,precio_unitario,fk_factura,fk_inventario) VALUES(1,0,5.27,13,16);
 INSERT INTO DETALLE_FACTURA(cantidad_prod,descuento,precio_unitario,fk_factura,fk_inventario) VALUES(1,0,2.99,14,17);
-INSERT INTO DETALLE_FACTURA(cantidad_prod,descuento,precio_unitario,fk_factura,fk_inventario) VALUES(1,10,7.32,14,18)1;
+INSERT INTO DETALLE_FACTURA(cantidad_prod,descuento,precio_unitario,fk_factura,fk_inventario) VALUES(1,10,7.32,14,18);
 INSERT INTO DETALLE_FACTURA(cantidad_prod,descuento,precio_unitario,fk_factura,fk_inventario) VALUES(1,0,5.94,15,19);
 INSERT INTO DETALLE_FACTURA(cantidad_prod,descuento,precio_unitario,fk_factura,fk_inventario) VALUES(2,0,1.64,16,20);
 INSERT INTO DETALLE_FACTURA(cantidad_prod,descuento,precio_unitario,fk_factura,fk_inventario) VALUES(2,30,1.64,17,21);

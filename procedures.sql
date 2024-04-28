@@ -121,7 +121,7 @@ DELIMITER //
 
 CREATE PROCEDURE reporte6()
 BEGIN
-    SELECT 
+    SELECT
         P.id_producto, 
         P.imagen_p,
         P.nombre_p, 
@@ -138,7 +138,7 @@ BEGIN
     JOIN 
         DETALLE_FACTURA DF ON I.id_inventario = DF.fk_inventario
     GROUP BY 
-        P.id_producto, P.nombre_p, P.imagen_p,C.nombre_categoria
+        C.nombre_categoria
     ORDER BY 
         Cantidad ASC;
 END//

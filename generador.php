@@ -291,7 +291,7 @@
     }
 
     function generar8() {
-        let ano = document.getElementById('anoR3').value;
+        let ano = document.getElementById('anoR8').value;
         let tax =document.getElementById('taxR8').value;
         popupwindow('generar8.php?ano=' + ano+'&tax='+tax, 'popup', 1000, 800);
     }
