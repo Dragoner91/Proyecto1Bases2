@@ -70,7 +70,7 @@ CREATE TABLE C_H(
 CREATE TABLE CARGO(
     id_cargo INT AUTO_INCREMENT,
     nombre_cargo VARCHAR(50) NOT NULL,
-    sueldo_hora DECIMAL NOT NULL,
+    sueldo_hora FLOAT NOT NULL,
     CONSTRAINT cargo_pk PRIMARY KEY(id_cargo)
 );
 
@@ -84,7 +84,7 @@ CREATE TABLE C_C(
     id_cargo_cont INT AUTO_INCREMENT,
     fecha_inicio DATE NOT NULL,
     fecha_fin DATE NOT NULL,
-    sueldo DECIMAL NOT NULL,
+    sueldo FLOAT NOT NULL,
     fk_cargo INT NOT NULL,
     cont_fk INT NOT NULL,
     CONSTRAINT cc_pk PRIMARY KEY(id_cargo_cont),
@@ -123,7 +123,7 @@ CREATE TABLE INVENTARIO(
 CREATE TABLE DETALLE_FACTURA(
     id_det_fact INT AUTO_INCREMENT,
     cantidad_prod INT NOT NULL,
-    precio_unitario DECIMAL NOT NULL,
+    precio_unitario FLOAT NOT NULL,
     descuento INT,
     fk_factura INT  NOT NULL,
     fk_inventario INT NOT NULL,
