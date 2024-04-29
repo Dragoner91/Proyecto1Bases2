@@ -34,7 +34,7 @@ $html = '<nav>
 <h4 style="text-align: center;"> Reporte #8</h4>
 <h5 style="text-align: center;"> Reporte Financiero  </h5>
 <h5> Año: '.$ano.'</h5>
-<h5> Porcentaje Taxes: '.$tax.'%</h5>
+<h5> Porcentaje Impuestos: '.$tax.'%</h5>
 </nav>
 <body>
 <div style="margin: 3%">

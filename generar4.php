@@ -8,18 +8,18 @@ $logo = file_get_contents('Assets/logo.jpg');
 $htmlNav = '<nav>
 <img src="data:image/jpg;base64,' . base64_encode($logo) . '" width="90" height="90" style="margin: 2% 30% 2% 2%">
 <h4 style="text-align: center;"> Reporte #4</h4>
-<h5 style="text-align: center;"> Productos filtrados por una categoria especifica y su cantidad en inventario </h5>
-<h5> Categoria: '.$cat.'</h5>
+<h5 style="text-align: center;"> Productos filtrados por una categoría determinada y su cantidad en inventario </h5>
+<h5> Categoría: '.$cat.'</h5>
 </nav>
 <body>
 <div style="margin: 3%">
     <table class="table table-striped table-dark">
         <thead>
           <tr>
-            <th scope="col">#</th>
-            <th scope="col">Foto</th>
-            <th scope="col">Nombre</th>
-            <th scope="col">Cantidad Disponible</th>
+            <th scope="col" style="vertical-align: middle;">#</th>
+            <th scope="col" style="vertical-align: middle;">Foto</th>
+            <th scope="col" style="vertical-align: middle;">Nombre</th>
+            <th scope="col" style="vertical-align: middle;">Cantidad<br>Disponible</th>
           </tr>
         </thead>
         <tbody>

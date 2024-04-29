@@ -124,7 +124,7 @@
             <tbody>
                 <tr class="linea">
                     <td id="fila">
-                        Reporte #1: Reporte de empleados por horas trabajadas
+                        Reporte #1: Reporte de empleados ordenados por horas trabajadas
                     </td>
                     <td></td>
                     <td>
@@ -144,7 +144,7 @@
                 <tr class="espacio"></tr>
                 <tr class="linea">
                     <td id="fila">
-                        Reporte #3: Horas cumplidas por los empleados dado un mes especifico<br> (Selecciona una fecha)
+                        Reporte #3: Horas cumplidas por los empleados dado un mes determinado<br> (Selecciona una fecha)
                     </td>
                     <td>
                         <table>
@@ -180,7 +180,7 @@
                 <tr class="espacio"></tr>
                 <tr class="linea">
                     <td id="fila">
-                        Reporte #4: Productos filtrados por una categoria especifica y su cantidad en inventario (Selecciona una categoria)
+                        Reporte #4: Productos filtrados por una categoría determinada y su cantidad en inventario (Selecciona una categoría)
                     </td>
                     <td>
                         <select name="catR4" id="catR4" class="categorias">
@@ -212,7 +212,7 @@
                 <tr class="espacio"></tr>
                 <tr class="linea">
                     <td id="fila">
-                        Reporte #6: Producto menos vendido de cada categoria
+                        Reporte #6: Producto menos vendido de cada categoría
                     </td>
                     <td></td>
                     <td>
@@ -222,7 +222,7 @@
                 <tr class="espacio"></tr>
                 <tr class="linea">
                     <td id="fila">
-                        Reporte #7: Categorias mas vendidas por cada mes del año (Selecciona un año)
+                        Reporte #7: Categoría más vendida por cada mes del año (Selecciona un año)
                     </td>
                     <td>
                         <select name="anoR7" id="anoR7" class="fechas">
@@ -237,7 +237,7 @@
                 <tr class="espacio"></tr>
                 <tr class="linea">
                     <td id="fila">
-                        Reporte #8: Reporte Financiero
+                        Reporte #8: Reporte Financiero (Selecciona año y porcentaje de impuestos)
                     </td>
                     <td>
                         <table>

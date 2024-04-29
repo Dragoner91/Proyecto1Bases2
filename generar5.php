@@ -16,7 +16,7 @@ $htmlNav = '<nav>
         <thead>
           <tr>
             <th scope="col" style="vertical-align: middle;">#</th>
-            <th scope="col" style="vertical-align: middle;">Cedula</th>
+            <th scope="col" style="vertical-align: middle;">Cédula</th>
             <th scope="col" style="vertical-align: middle;">Nombre</th>
             <th scope="col" style="vertical-align: middle;">Apellido</th>
             <th scope="col" style="vertical-align: middle;">Ventas</th>

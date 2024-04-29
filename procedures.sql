@@ -127,26 +127,25 @@ DELIMITER //
 
 CREATE PROCEDURE reporte6()
 BEGIN
-    SELECT
-        P.id_producto, 
-        P.imagen_p,
-        P.nombre_p, 
-        C.nombre_categoria,
-        SUM(DF.cantidad_prod) AS Cantidad
-    FROM 
-        PRODUCTO P
-    JOIN 
-        CATEGORIA C ON P.fk_categoria = C.id_categoria
-    JOIN 
-        INVENTARIO I ON P.id_producto = I.producto_fk
-    JOIN 
-        HIST_PRECIO_VENTA PV ON I.id_inventario = PV.fk_inv
-    JOIN 
-        DETALLE_FACTURA DF ON I.id_inventario = DF.fk_inventario
-    GROUP BY 
-        C.nombre_categoria
-    ORDER BY 
-        Cantidad ASC;
+    SELECT 
+    	p.imagen_p,
+        c.nombre_categoria,
+        p.nombre_p AS producto_menos_vendido,
+        MIN(v.total_vendido) AS total_vendido
+    FROM (
+        SELECT 
+            p.id_producto,
+            p.fk_categoria,
+            SUM(df.cantidad_prod) AS total_vendido
+        FROM DETALLE_FACTURA df
+        JOIN INVENTARIO i ON df.fk_inventario = i.id_inventario
+        JOIN PRODUCTO p ON i.producto_fk = p.id_producto
+        GROUP BY p.id_producto
+    ) AS v
+    JOIN PRODUCTO p ON v.id_producto = p.id_producto
+    JOIN CATEGORIA c ON p.fk_categoria = c.id_categoria
+    GROUP BY c.id_categoria
+    ORDER BY c.nombre_categoria;
 END//
 
 DELIMITER;
@@ -157,26 +156,25 @@ DELIMITER //
 CREATE PROCEDURE reporte7(IN ano INT)
 BEGIN
     SELECT 
-        YEAR(f.fecha_emision) AS Año_Venta, 
-        MONTH(f.fecha_emision) AS Mes_Venta, 
-        c.nombre_categoria,
-        SUM(F.total) AS Total_Ventas
-    FROM 
-        categoria as c
-    JOIN
-    producto p on c.id_categoria = p.fk_categoria
-    JOIN
-    inventario i on p.id_producto = i.producto_fk
-    JOIN
-    detalle_factura df on i.id_inventario = df.fk_inventario
-    JOIN
-    factura f on df.fk_factura = f.id_factura
-    WHERE 
-        YEAR(f.fecha_emision) = ano
-    GROUP BY 
-        Año_Venta, Mes_Venta, C.nombre_categoria
-    ORDER BY 
-        Año_Venta, Mes_Venta, Total_Ventas DESC;
+        Mes_Venta,
+        nombre_categoria,
+        Total_Ventas
+    FROM (
+        SELECT 
+            C.nombre_categoria,
+            MONTHNAME(F.fecha_emision)AS Mes_Venta,
+            SUM(DF.cantidad_prod) AS Total_Ventas,
+            RANK() OVER (PARTITION BY MONTH(F.fecha_emision) ORDER BY SUM(DF.cantidad_prod) DESC) AS Ranking
+        FROM DETALLE_FACTURA DF
+        INNER JOIN INVENTARIO I ON DF.fk_inventario = I.id_inventario
+        INNER JOIN PRODUCTO P ON I.producto_fk = P.id_producto
+        INNER JOIN CATEGORIA C ON P.fk_categoria = C.id_categoria
+        INNER JOIN FACTURA F ON DF.fk_factura = F.id_factura
+        WHERE YEAR(F.fecha_emision) = ano
+        GROUP BY C.nombre_categoria, MONTH(F.fecha_emision)
+    ) AS VentasPorMes
+    WHERE Ranking = 1
+    ORDER BY FIELD(Mes_Venta, 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December');
 END//
 
 DELIMITER ;

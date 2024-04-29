@@ -23,7 +23,7 @@ $logo = file_get_contents('Assets/logo.jpg');
 $htmlNav = '<nav>
 <img src="data:image/jpg;base64,' . base64_encode($logo) . '" width="90" height="90" style="margin: 2% 30% 2% 2%">
 <h4 style="text-align: center;"> Reporte #3</h4>
-<h5 style="text-align: center;"> Horas cumplidas por los empleados dado un mes especifico </h5>
+<h5 style="text-align: center;"> Horas cumplidas por los empleados dado un mes determinado </h5>
 <h5> Año: '.$ano.'</h5>
 <h5> Mes: '.$meses[$mes].'</h5>
 </nav>
@@ -33,7 +33,7 @@ $htmlNav = '<nav>
         <thead>
           <tr>
             <th scope="col">#</th>
-            <th scope="col">Cedula</th>
+            <th scope="col">Cédula</th>
             <th scope="col">Nombre</th>
             <th scope="col">Apellido</th>
             <th scope="col">Horas</th>

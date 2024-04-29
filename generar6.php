@@ -8,7 +8,7 @@ $logo = file_get_contents('Assets/logo.jpg');
 $htmlNav = '<nav>
 <img src="data:image/jpg;base64,' . base64_encode($logo) . '" width="90" height="90" style="margin: 2% 30% 2% 2%">
 <h4 style="text-align: center;"> Reporte #6</h4>
-<h5 style="text-align: center;"> Lista de productos ordenados por cantidad de productos en inventario  </h5>
+<h5 style="text-align: center;"> Categoría más vendida por cada mes del año </h5>
 </nav>
 <body>
 <div style="margin: 3%">
@@ -18,8 +18,8 @@ $htmlNav = '<nav>
             <th scope="col" style="vertical-align: middle;">#</th>
             <th scope="col" style="vertical-align: middle;">Foto</th>
             <th scope="col" style="vertical-align: middle;">Nombre</th>
-            <th scope="col" style="vertical-align: middle;">Categoria</th>
-            <th scope="col" style="vertical-align: middle;">Cantidad Disponible</th>
+            <th scope="col" style="vertical-align: middle;">Categoría</th>
+            <th scope="col" style="vertical-align: middle;">Total Vendido</th>
           </tr>
         </thead>
         <tbody>
@@ -42,9 +42,9 @@ foreach ($rows as $row) {
     <tr>
         <th scope="row" style="vertical-align: middle;">' . $i . '</th>
         <td style="vertical-align: middle;"><img src="data:image/jpeg;base64,' . base64_encode($row['imagen_p']) . '" width="45px" height="45px"></td>
-        <td style="vertical-align: middle;">' . $row['nombre_p'] . '</td>
+        <td style="vertical-align: middle;">' . $row['producto_menos_vendido'] . '</td>
         <td style="vertical-align: middle;">' . $row['nombre_categoria'] . '</td>
-        <td style="vertical-align: middle;">' . $row['Cantidad'] . '</td>
+        <td style="vertical-align: middle;">' . $row['total_vendido'] . '</td>
     </tr>
     ';
     $mpdf->WriteHTML($consulta, 2);
